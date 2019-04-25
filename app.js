@@ -5,6 +5,7 @@ const graphqlHttp = require('express-graphql');
 // of converting it to JavaScript
 // it will generate graphql schema object based on our written schema
 const mongoose = require('mongoose');
+const isAuth = require('./middleware/is-auth');
 
 const graphqlSchema = require('./graphql/schema/index');
 const graphqlResolvers = require('./graphql/resolvers/index');
@@ -13,6 +14,7 @@ const app = express();
 
 app.use(bodyParser.json());
 
+app.use(isAuth);
 
 app.use(
   '/graphql',
