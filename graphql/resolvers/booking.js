@@ -13,7 +13,7 @@ module.exports = {
       throw err;
     }
   },
-  bookEvent: async args => {
+  bookEvent: async (args, req) => {
     const fetchedEvent = await Event.findOne({ _id: args.eventId });
     const booking = new Booking({
       user: '5cbfcaba7b07e03f001fdd00',
