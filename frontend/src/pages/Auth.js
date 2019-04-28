@@ -64,7 +64,7 @@ class AuthPage extends React.Component {
         }
         return res.json();
       }).then(resData => {
-        console.log(resData);
+        console.log("Auth.js login resData", resData);
         if(resData.data.login.token) {
           this.context.login(
             resData.data.login.token,

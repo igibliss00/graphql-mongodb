@@ -39,7 +39,7 @@ mongoose.connect(
     `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0-ukwqx.mongodb.net/${process.env.MONGO_DB}?retryWrites=true`, { useNewUrlParser: true }
 )
 .then(() => {
-    app.listen(8000, console.log("now listening for requests on port 3000"));
+    app.listen(8000, console.log("now listening for requests on port 8000"));
 })
 .catch(err => {
     console.log("Error occurred during Mongoose connect", err);

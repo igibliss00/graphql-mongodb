@@ -14,9 +14,12 @@ module.exports = {
     }
   },
   bookEvent: async (args, req) => {
+    if(!req.isAuth) {
+      throw new Error("Book Event Error. Unauthenticated!");
+    };
     const fetchedEvent = await Event.findOne({ _id: args.eventId });
     const booking = new Booking({
-      user: '5cbfcaba7b07e03f001fdd00',
+      user: req.userId,
       event: fetchedEvent
     });
     const result = await booking.save();
